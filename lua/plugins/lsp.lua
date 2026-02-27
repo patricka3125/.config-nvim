@@ -20,6 +20,7 @@ return {
 				python = { "black" },
 				cpp = { "clang-format" },
 				javascript = { "prettier", stop_after_first = true },
+				go = { "gofmt", "goimports" },
 			},
 
 			format_on_save = {
@@ -33,16 +34,15 @@ return {
 		lazy = false,
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "cpp", "lua", "vim", "python" },
+			ensure_installed = { "cpp", "lua", "vim", "python", "go" },
 			auto_install = true,
 			highlight = { enable = true },
 		},
 		config = function(_, opts)
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "cpp", "python", "vim", "lua", "c" },
+				pattern = { "cpp", "python", "vim", "lua", "c", "go" },
 				callback = function()
-					-- Use pcall (protected call) to avoid errors if a parser isn't installed yet
-					pcall(vim.treesitter.start)
+					vim.treesitter.start()
 				end,
 			})
 		end,
