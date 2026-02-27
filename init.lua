@@ -15,3 +15,4 @@ opt.colorcolumn = "160"
 require("config.lazy")
 
 vim.lsp.enable("clangd")
+vim.lsp.enable("gopls")
