@@ -10,6 +10,8 @@ return {
 		cmd = "Neogit",
 		keys = {
 			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
+			{ "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "LSP Definition" },
+			{ "gr", "<cmd>Telescope lsp_references<cr>", desc = "LSP References" },
 		},
 		config = function()
 			local hl = vim.api.nvim_set_hl
