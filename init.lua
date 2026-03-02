@@ -15,3 +15,8 @@ opt.colorcolumn = "160"
 require("config.lazy")
 
 vim.lsp.enable("clangd")
+
+-- Disable netrw (for nvim-tree)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
